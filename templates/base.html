@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Face Detect</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}">
+
+	<!-- Font Awesome 5 -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='lib/fontawesome/css/all.css') }}">
+
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<body>
+	<div id="content">
+		{% block content %}
+		{% endblock %}
+	</div>
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="{{ url_for('static', filename='lib/jquery/jquery.min.js') }}"></script>
+
+	<!-- Custom -->
+	<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
