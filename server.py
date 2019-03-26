@@ -35,6 +35,7 @@ def detect():
 			return redirect(request.url)
 
 		if file and allowed_file(file.filename):
+			create_folder(UPLOAD_FOLDER)
 			filename = secure_filename(file.filename)
 			path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 			file.save(path)
@@ -45,6 +46,17 @@ def detect():
 				return json.dumps({'count': count, 'data': base64.b64encode(image).decode('utf-8')})
 			else:
 				return error(404, "No face found")
+
+##
+# Create folder if not exists
+#
+# @param string path Absolute path to folder
+#
+# @return string
+def create_folder(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+        return path
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
